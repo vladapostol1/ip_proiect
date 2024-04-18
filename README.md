@@ -18,6 +18,7 @@ Pentru a lucra eficient cu repository-ul pe GitHub, urmează pașii de mai jos:
     ```
     git checkout -b [branch-name]
     ```
+    
 3.**Adauga toate fisierele noi:**
     ```
      git add .
