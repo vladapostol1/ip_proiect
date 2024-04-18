@@ -9,7 +9,7 @@ Realizarea unei aplicații stil casă de marcat care are ca rol ușurarea prelua
 
 Pentru a lucra eficient cu repository-ul pe GitHub, urmează pașii de mai jos:
 
-1. **Clonează repository-ul:**
+1.**Clonează repository-ul:**
     ```bash
     git clone https://github.com/vladapostol1/ip_proiect
     ```
