@@ -3,21 +3,39 @@
 Proiect realizat pentru Ingineria Calculatoarelor - Facultatea de Automatica și Calculatoare din Iași
 
 ### Scopul proiectului
-Realizarea unei aplicații stil casă de marcat care are ca rol ușurarea preluatului de comenzi
+Realizarea unei aplicații stil casă de marcat care are ca rol ușurarea preluatului de comenzi.
 
-#### How to use git
+### Cum se folosește Git
 
-Cum se foloseste github
+Pentru a lucra eficient cu repository-ul pe GitHub, urmează pașii de mai jos:
 
-`git clone https://github.com/vladapostol1/ip_proiect`
-`git checkout -b [branch-name]` - creati un branch nou
-`git add .` - adauga toate fisierele
-`git commit -m '[mesaj despre commit]'` - se scrie pe git-ul local
-`git push -u origin [branch-name]` - se trimite pe git-ul online pe branch-ul vostru
+1. **Clonează repository-ul:**
+    ```bash
+    git clone https://github.com/vladapostol1/ip_proiect
+    ```
+
+2.**Creaza un branch nou:**
+    ```bash
+    git checkout -b [branch-name]
+    ```
+3.**Adauga toate fisierele noi:**
+    ```bash
+     git add .
+    ```
+
+4.**Actualizează repository-ul local:**
+    ```bash
+    git commit -m '[mesaj despre commit]
+    ```
+
+5.**Actualizează repository-ul pe branch-ul vostru:**
+    ```bash
+    git push -u origin [branch-name]
+    ```
+    
 -------------------------------------------------------------
 Inainte de merge-uri - coding review-uri
 
-
-### How to use the project
+### Cum se foloseste proiectul
 
 -----Implementing------
