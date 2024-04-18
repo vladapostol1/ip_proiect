@@ -35,9 +35,10 @@ Pentru a lucra eficient cu repository-ul pe GitHub, urmează pașii de mai jos:
     ```
     git push -u origin [branch-name]
     ```
-    
--------------------------------------------------------------
+
 Inainte de merge-uri - coding review-uri
+
+-------------------------------------------------------------
 
 ### Cum se foloseste proiectul
 
