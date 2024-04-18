@@ -1,7 +1,6 @@
 # ip_proiect
 
-Proiect realizat pentru Ingineria Calculatoarelor - Facultatea de Automatica și Calculatoare din Iași
--------------------------------------------------------------
+### Proiect realizat pentru Ingineria Calculatoarelor - Facultatea de Automatica și Calculatoare din Iași
 
 ### Scopul proiectului
 Realizarea unei aplicații stil casă de marcat care are ca rol ușurarea preluatului de comenzi.
