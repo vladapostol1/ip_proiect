@@ -1,4 +1,4 @@
-﻿namespace QuickServe;
+﻿namespace QuickServe.Services;
 
 using QuickServe.Models;
 using QuickServe.Interfaces;
@@ -12,7 +12,7 @@ public class FoodService : IFoodService
 
     public FoodService(IConfiguration configuration)
     {
-        _connectionString = configuration.GetConnectionString("DefaultConnection");
+        _connectionString = configuration.GetConnectionString("SQLiteConnection");
     }
 
     public async Task<IEnumerable<FoodModel>> GetFoodsAsync(int restaurantId)
