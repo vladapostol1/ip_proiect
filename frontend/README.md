@@ -11,3 +11,7 @@ Dupa rulati comanda de start(everytime asta deschide serverul pentru front):
 ```
 npm run dev
 ```
+
+Pentru Tailwind css
+
+npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch
