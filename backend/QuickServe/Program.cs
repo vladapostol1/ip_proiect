@@ -49,7 +49,8 @@ app.MapPost("/login", async (IAuthService authService, LoginContract contract) =
     if (user != null)
     {
         //var token = JwtGenerator.GenerateJwtToken(user);
-        return Results.Ok(new { Token = token });
+        //return Results.Ok(new { Token = token });
+        return Results.Ok();
     }
     return Results.Unauthorized();
 });
