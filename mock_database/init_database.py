@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS foods (
     name TEXT NOT NULL,
     price REAL NOT NULL,
     description TEXT,
+    category TEXT,
     restaurant_id INTEGER,
     FOREIGN KEY (restaurant_id) REFERENCES restaurants (id)
 );

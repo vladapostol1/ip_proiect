@@ -32,7 +32,7 @@ public class FoodService : IFoodService
     public async Task AddFoodAsync(FoodModel food)
     {
         using var connection = new SQLiteConnection(_connectionString);
-        await connection.ExecuteAsync("INSERT INTO foods (name, price, description, restaurant_id) VALUES (@Name, @Price, @Description, @RestaurantId)", food);
+        await connection.ExecuteAsync("INSERT INTO foods (name, price, description, category, restaurant_id) VALUES (@Name, @Price, @Description, @Category, @RestaurantId)", food);
     }
 
     public async Task DeleteFoodAsync(int id, int restaurantId)

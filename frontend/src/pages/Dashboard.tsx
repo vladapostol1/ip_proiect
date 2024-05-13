@@ -1,19 +1,28 @@
-import React from "react";
-import { useAuth } from "../context/AuthContext";
+import React, { useState } from "react";
+import Sidenav from "../components/Sidenav";
+import Menu from "../components/Menu";
+import Orders from "../components/Orders";
+import MakeOrder from "../components/MakeOrder";
+import NewFood from "../components/NewFood";
 
 const Dashboard: React.FC = () => {
-  const auth = useAuth();
+  const [appState, setAppState] = useState(0);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded shadow-md">
-        <h2 className="text-2xl font-bold text-center">Dashboard</h2>
-        <button
-          onClick={auth.logout}
-          className="w-full px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-        >
-          Logout
-        </button>
+    <div className="flex flex-row min-h-screen bg-zinc-950">
+      <Sidenav appState={appState} setAppState={setAppState} />
+      <div className="flex-grow">
+        {appState == 0 ? (
+          <Menu />
+        ) : appState == 1 ? (
+          <Orders />
+        ) : appState == 2 ? (
+          <MakeOrder />
+        ) : appState == 3 ? (
+          <NewFood />
+        ) : (
+          <div>An error has appeard.</div>
+        )}
       </div>
     </div>
   );
