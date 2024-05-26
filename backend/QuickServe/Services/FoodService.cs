@@ -10,11 +10,13 @@ public class FoodService : IFoodService
 {
     private readonly string _connectionString;
 
+    //Connects with the database
     public FoodService(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("SQLiteConnection");
     }
 
+    //Requests foods of a specific restaurant
     public async Task<IEnumerable<FoodModel>> GetFoodsAsync(int restaurantId)
     {
         using var connection = new SQLiteConnection(_connectionString);
@@ -22,6 +24,7 @@ public class FoodService : IFoodService
         return foods;
     }
 
+    //Requests a certain food of a specific restaurant
     public async Task<FoodModel> GetFoodByIdAsync(int id, int restaurantId)
     {
         using var connection = new SQLiteConnection(_connectionString);
@@ -29,12 +32,14 @@ public class FoodService : IFoodService
         return food;
     }
 
+    //Creates food and adds it to user's restaurant
     public async Task AddFoodAsync(FoodModel food)
     {
         using var connection = new SQLiteConnection(_connectionString);
         await connection.ExecuteAsync("INSERT INTO foods (name, price, description, category, restaurant_id) VALUES (@Name, @Price, @Description, @Category, @RestaurantId)", food);
     }
 
+    //Delets food from user's restaurant
     public async Task DeleteFoodAsync(int id, int restaurantId)
     {
         using var connection = new SQLiteConnection(_connectionString);

@@ -7,42 +7,46 @@ using System.Data.SQLite;
 using Microsoft.Extensions.Configuration;
 using QuickServe.Contracts;
 
+
 public class AuthService : IAuthService
 {
     private readonly string _connectionString;
 
+    //Connects with the database
     public AuthService(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("SQLiteConnection");
     }
 
-public async Task<bool> RegisterUser(RegistrationContract contract)
-{
-    using (var connection = new SQLiteConnection(_connectionString))
+    //Ads user to the database and create's his restaurant
+    public async Task<bool> RegisterUser(RegistrationContract contract)
     {
-        connection.Open();
-        using (var transaction = connection.BeginTransaction())
+        using (var connection = new SQLiteConnection(_connectionString))
         {
-            var restaurantCmd = new SQLiteCommand("INSERT INTO restaurants (name, address, website) VALUES (@name, @address, @website); SELECT last_insert_rowid();", connection, transaction);
-            restaurantCmd.Parameters.AddWithValue("@name", contract.RestaurantName);
-            restaurantCmd.Parameters.AddWithValue("@address", contract.RestaurantAddress);
-            restaurantCmd.Parameters.AddWithValue("@website", contract.RestaurantWebsite);
+            connection.Open();
+            using (var transaction = connection.BeginTransaction())
+            {
+                var restaurantCmd = new SQLiteCommand("INSERT INTO restaurants (name, address, website) VALUES (@name, @address, @website); SELECT last_insert_rowid();", connection, transaction);
+                restaurantCmd.Parameters.AddWithValue("@name", contract.RestaurantName);
+                restaurantCmd.Parameters.AddWithValue("@address", contract.RestaurantAddress);
+                restaurantCmd.Parameters.AddWithValue("@website", contract.RestaurantWebsite);
 
-            var restaurantId = (long)restaurantCmd.ExecuteScalar();
+                var restaurantId = (long)restaurantCmd.ExecuteScalar();
 
-            var userCmd = new SQLiteCommand("INSERT INTO users (username, password, restaurant_id) VALUES (@username, @password, @restaurant_id)", connection, transaction);
-            userCmd.Parameters.AddWithValue("@username", contract.Username);
-            userCmd.Parameters.AddWithValue("@password", PasswordHasher.HashPassword(contract.Password)); // Hash the password before storing
-            userCmd.Parameters.AddWithValue("@restaurant_id", restaurantId);
+                var userCmd = new SQLiteCommand("INSERT INTO users (username, password, restaurant_id) VALUES (@username, @password, @restaurant_id)", connection, transaction);
+                userCmd.Parameters.AddWithValue("@username", contract.Username);
+                userCmd.Parameters.AddWithValue("@password", PasswordHasher.HashPassword(contract.Password)); // Hash the password before storing
+                userCmd.Parameters.AddWithValue("@restaurant_id", restaurantId);
 
-            var result = await userCmd.ExecuteNonQueryAsync();
+                var result = await userCmd.ExecuteNonQueryAsync();
 
-            transaction.Commit();
-            return result > 0;
+                transaction.Commit();
+                return result > 0;
+            }
         }
     }
-}
 
+    //Checks if user's credentials exist in the database
     public async Task<UserModel> AuthenticateUser(string username, string password)
     {
         using (var connection = new SQLiteConnection(_connectionString))

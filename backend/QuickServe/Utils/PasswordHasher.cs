@@ -22,7 +22,7 @@ public class PasswordHasher
 
         return $"{Convert.ToBase64String(salt)}.{hashed}";
     }
-
+    //Rehases the user's input and checks if it matches the hashed password in the database
     public static bool VerifyPassword(string hashedPasswordWithSalt, string passwordToCheck)
     {
         var parts = hashedPasswordWithSalt.Split('.', 2);

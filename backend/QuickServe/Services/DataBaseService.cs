@@ -8,6 +8,7 @@ public class DatabaseService : IDatabaseService
 {
     private readonly string _connectionString;
 
+    //Connects with the database
     public DatabaseService(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("SQLiteConnection");

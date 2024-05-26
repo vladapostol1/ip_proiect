@@ -11,6 +11,7 @@ public class TokenBlacklistService : ITokenBlacklistService
         return Task.FromResult(_blacklistedTokens.Contains(token));
     }
 
+    //Bans tokens so you can't relogin after sign out with the same token
     public Task BlacklistTokenAsync(string token)
     {
         _blacklistedTokens.Add(token);

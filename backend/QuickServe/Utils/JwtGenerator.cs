@@ -17,6 +17,7 @@ public class JwtGenerator
         _configuration = configuration;
     }
 
+    //Generate a JSON token for web auth
     public string GenerateJwtToken(UserModel user)
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

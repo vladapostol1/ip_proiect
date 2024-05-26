@@ -11,11 +11,13 @@ public class OrderService : IOrderService
 {
     private readonly string _connectionString;
 
+    //Connects with the database
     public OrderService(IConfiguration configuration)
     {
         _connectionString = configuration.GetConnectionString("SQLiteConnection");
     }
 
+    //Creates an order and waits for it's creation
     public async Task<int> CreateOrderAsync(OrderModel order, List<OrderItemModel> items)
     {
         using var connection = new SQLiteConnection(_connectionString);
@@ -56,6 +58,7 @@ public class OrderService : IOrderService
         }
     }
 
+    //Requests orders from specific restaurant
     public async Task<IEnumerable<OrderModel>> GetOrdersAsync(int restaurantId)
     {
         using var connection = new SQLiteConnection(_connectionString);
@@ -89,6 +92,7 @@ public class OrderService : IOrderService
         return orders.Distinct().ToList();
     }
 
+    //Requests a specific order from a specific restaurant
     public async Task<OrderModel> GetOrderByIdAsync(int id, int restaurantId)
     {
         using var connection = new SQLiteConnection(_connectionString);
