@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "eaeeaefb-d171-42a5-bcdf-c7f71cbc3b91",
+		"name": "ip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35174140"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Username\":\"octavian\",\r\n    \"Password\":\"octavian\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5114/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5114",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5114",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5114"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "foods",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvY3RhdmlhbiIsImp0aSI6ImE3YTA2OTlhLTI2MDgtNGRlNS04ZGMzLWU1Njc1YTM3YmQ1MiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMiIsInJlc3RhdXJhbnRfaWQiOiIyIiwiZXhwIjoxNzE2ODE3MDk0LCJpc3MiOiJRdWlja1NlcnZlIiwiYXVkIjoiUXVpY2tTZXJ2ZSJ9.JJtIunb1tIWUTsI6MXMU_H1A1pBMP2UCkdxX39NqB_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\":\"1\",\r\n    \"RestaurantId\":\"1\",\r\n    \"Name\":\"Pizza\",\r\n    \"Price\":\"14.5\",\r\n    \"Description\":\"A very nice pizza\",\r\n    \"Category\":\"Pizza\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5114/foods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5114",
+					"path": [
+						"foods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJvY3RhdmlhbiIsImp0aSI6ImE3YTA2OTlhLTI2MDgtNGRlNS04ZGMzLWU1Njc1YTM3YmQ1MiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMiIsInJlc3RhdXJhbnRfaWQiOiIyIiwiZXhwIjoxNzE2ODE3MDk0LCJpc3MiOiJRdWlja1NlcnZlIiwiYXVkIjoiUXVpY2tTZXJ2ZSJ9.JJtIunb1tIWUTsI6MXMU_H1A1pBMP2UCkdxX39NqB_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\":\"1\",\r\n    \"RestaurantId\":\"1\",\r\n    \"TableNumber\":\"2\",\r\n    \"Total\":\"29.0\",\r\n    \"OrderTime\":\"2024-05-13 17:29:01.481Z\",\r\n    \"Items\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "orders",
+					"host": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
