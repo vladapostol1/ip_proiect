@@ -9,7 +9,7 @@ interface SidenavProps {
 const Sidenav: React.FC<SidenavProps> = ({ appState, setAppState }) => {
   const auth = useAuth();
   return (
-    <div className="flex flex-col bg-blue-600 text-white justify-between">
+    <div className="flex flex-col bg-blue-600 text-white justify-between w-[10%]">
       <div className="flex flex-col">
         <h2 className="text-lg font-bold text-center pt-4 pb-8">Dashboard</h2>
         <button
