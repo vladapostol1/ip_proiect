@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickServe", "QuickServe\QuickServe.csproj", "{E9E9203F-1C21-4686-AFA5-1DCB1D5351F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickServe.Tests", "QuickServe.Tests\QuickServe.Tests.csproj", "{0FC2AD03-ACCB-498D-83FC-15AA5A47EDD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{E9E9203F-1C21-4686-AFA5-1DCB1D5351F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9E9203F-1C21-4686-AFA5-1DCB1D5351F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9E9203F-1C21-4686-AFA5-1DCB1D5351F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC2AD03-ACCB-498D-83FC-15AA5A47EDD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC2AD03-ACCB-498D-83FC-15AA5A47EDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC2AD03-ACCB-498D-83FC-15AA5A47EDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC2AD03-ACCB-498D-83FC-15AA5A47EDD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
